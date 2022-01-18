@@ -22,3 +22,9 @@ Route::group(['prefix' => 'admin'], function () {
 
 // Include Wave Routes
 Wave::routes();
+
+Route::domain('{subdomain}.cyberlegion.io')->group(function() {
+	Route::get('user/{id}', function($subdomain, $id) {
+		dd('Subdomain Catch');
+	});
+});
