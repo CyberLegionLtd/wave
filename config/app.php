@@ -15,6 +15,17 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+     /*
+    |--------------------------------------------------------------------------
+    | Application Domain
+    |--------------------------------------------------------------------------
+    |
+    | This value is the domain name of your application.
+    |
+    */
+
+    'domain' => env('APP_DOMAIN', 'localhost'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

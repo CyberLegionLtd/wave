@@ -11,6 +11,13 @@
 |
 */
 
+$domain = config('app.domain', 'localhost');
+
+Route::domain("{subdomain}.$domain")->group(function() {
+	Route::get('/', function($subdomain) {
+        dd('Domain Catch');
+	});
+});
 
 // Authentication routes
 Auth::routes();
@@ -22,9 +29,3 @@ Route::group(['prefix' => 'admin'], function () {
 
 // Include Wave Routes
 Wave::routes();
-
-Route::domain('{subdomain}.cyberlegion.io')->group(function() {
-	Route::get('user/{id}', function($subdomain, $id) {
-		dd('Subdomain Catch');
-	});
-});
