@@ -19,13 +19,15 @@ Route::domain("{subdomain}.$domain")->group(function() {
 	});
 });
 
-// Authentication routes
-Auth::routes();
+Route::domain($domain)->group(function() {
+    // Authentication routes
+    Auth::routes();
 
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+    Route::group(['prefix' => 'admin'], function () {
+        Voyager::routes();
+    });
+
+    // Include Wave Routes
+    Wave::routes();
 });
-
-// Include Wave Routes
-Wave::routes();
